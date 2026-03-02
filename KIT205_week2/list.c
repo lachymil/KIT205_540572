@@ -115,8 +115,6 @@ void list_test() {
 
 	// tEST INSERT IN ORDER
 
-	printf("tESTING INSERT IN ORDER\n");
-
 	List list2 = new_list();
 
 	insert_in_order(&list2, 5);
