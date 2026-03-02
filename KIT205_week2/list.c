@@ -1,7 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
-#define _CRT_SECURE_NO_WARNINGS
+
 
 
 // Create a new empty list
@@ -181,28 +182,13 @@ void list_test() {
     printf("\nAll tests complete.\n");
 }
 
-// Ad-hoc tests
-void list_adhoc_test() {
-    List my_list = new_list();
-    int input;
 
-    // read first int
-    scanf("%d", &input);
 
-    // keep going until user enters 0
-    while (input != 0) {
-        insert_at_front(&my_list, input);
-        scanf("%d", &input);
-    }
 
-    destroy_list(&my_list);
-}
-
-// ----------------------
 // Ad hoc testing - v2 (menu + option_* functions)
-// ----------------------
 
-// helper functions (NOT in list.h)
+
+// helper functions 
 
 static void option_insert(List* my_list) {
     int value;
@@ -226,7 +212,7 @@ static void option_print(List* my_list) {
 }
 
 // Updated ad hoc test using menu
-void list_adhoc_test_menu() {
+void list_adhoc_test() {
     List my_list = new_list();
     int quit = 0;
 
