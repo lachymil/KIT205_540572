@@ -2,6 +2,6 @@
 #include "list.h"
 
 int main() {
-	test_list();
+	list_test();
 	return 0;
 }
