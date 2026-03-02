@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
+#define _CRT_SECURE_NO_WARNINGS
+
 
 // Create a new empty list
 List new_list() {
@@ -177,4 +179,85 @@ void list_test() {
     destroy_list(&list3);
 
     printf("\nAll tests complete.\n");
+}
+
+// Ad-hoc tests
+void list_adhoc_test() {
+    List my_list = new_list();
+    int input;
+
+    // read first int
+    scanf("%d", &input);
+
+    // keep going until user enters 0
+    while (input != 0) {
+        insert_at_front(&my_list, input);
+        scanf("%d", &input);
+    }
+
+    destroy_list(&my_list);
+}
+
+// ----------------------
+// Ad hoc testing - v2 (menu + option_* functions)
+// ----------------------
+
+// helper functions (NOT in list.h)
+
+static void option_insert(List* my_list) {
+    int value;
+    printf("Enter a number to insert: ");
+    scanf("%d", &value);
+
+    insert_at_front(my_list, value);
+}
+
+static void option_delete(List* my_list) {
+    int value;
+    printf("Enter a number to delete: ");
+    scanf("%d", &value);
+
+    delete_list(my_list, value);
+}
+
+static void option_print(List* my_list) {
+    printf("List: ");
+    print_list(my_list);
+}
+
+// Updated ad hoc test using menu
+void list_adhoc_test_menu() {
+    List my_list = new_list();
+    int quit = 0;
+
+    while (!quit) {
+        int option;
+
+        printf("\nMenu:\n");
+        printf("0 - Quit\n");
+        printf("1 - Insert\n");
+        printf("2 - Delete\n");
+        printf("3 - Print\n");
+        printf("Choose option: ");
+
+        scanf("%d", &option);
+
+        if (option == 0) {
+            quit = 1;
+        }
+        else if (option == 1) {
+            option_insert(&my_list);
+        }
+        else if (option == 2) {
+            option_delete(&my_list);
+        }
+        else if (option == 3) {
+            option_print(&my_list);
+        }
+        else {
+            printf("Invalid option.\n");
+        }
+    }
+
+    destroy_list(&my_list);
 }
