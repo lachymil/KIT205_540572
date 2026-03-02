@@ -20,3 +20,6 @@ void delete_list(List* self, int data);
 void destroy_list(List* self);
 void list_test();
 void list_adhoc_test();
+
+List reverse(List* self);
+List merge(List* a, List* b);
