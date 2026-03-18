@@ -67,3 +67,23 @@ void f7(long n) {
     }
 }
 
+int main(void) {
+    long n;
+    clock_t start, diff;
+    long msec;
+
+    printf("Enter a value for n\n");
+    scanf("%ld", &n);
+
+    start = clock();
+
+    f1(n);   
+
+    diff = clock() - start;
+    msec = diff * 1000 / CLOCKS_PER_SEC;
+
+    printf("Operation took %ld milliseconds\n\n", msec);
+
+    return 0;
+}
+
