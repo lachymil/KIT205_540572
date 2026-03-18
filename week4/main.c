@@ -2,7 +2,6 @@
 #include <time.h>
 #include <stdio.h>
 
-
 long f1(long n) {
     long k = 0;
     for (long i = 0; i < n; i++) {
