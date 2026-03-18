@@ -77,7 +77,7 @@ int main(void) {
 
     start = clock();
 
-    f1(n);   
+    f7(n);   
 
     diff = clock() - start;
     msec = diff * 1000 / CLOCKS_PER_SEC;
